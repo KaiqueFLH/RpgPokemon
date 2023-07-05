@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public abstract class Pokemons {
 
@@ -6,14 +7,13 @@ public abstract class Pokemons {
     private String tipoPoke;
     private int vida;
     private int level;
-    private static ArrayList<Movimentos> movimentosPoke = new ArrayList<>();
+    private ArrayList<Movimentos> movimentosPoke = new ArrayList<>();
 
-    public Pokemons (String nome, String tipoPoke,int vida,int level, ArrayList<Movimentos> movimentosPoke) {
+    public Pokemons(String nome, String tipoPoke, int vida, int level) {
         this.nome = nome;
         this.tipoPoke = tipoPoke;
         this.vida = vida;
         this.level = level;
-        this.movimentosPoke = movimentosPoke;
     }
 
     //Getters e Setters de cada Atributo.
@@ -21,46 +21,23 @@ public abstract class Pokemons {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getTipoPoke() {
-        return tipoPoke;
-    }
-
-    public void setTipoPoke(String tipoPoke) {
-        this.tipoPoke = tipoPoke;
-    }
-
-    public int getVida() {
-        return vida;
-    }
-
-    public void setVida(int vida) {
-        this.vida = vida;
-    }
-
-    public int getLevel() {
-        return level;
-    }
-
-    public void setLevel(int level) {
-        this.level = level;
-    }
-
-    public static ArrayList<Movimentos> getMovimentosPoke() {
+    public ArrayList<Movimentos> getMovimentosPoke() {
         return movimentosPoke;
+    }
+//    Adiciona Ataques na lista individual de cada Pokemon
+    public void adicionarAtaques(Movimentos mov1,Movimentos mov2,Movimentos mov3,Movimentos mov4) {
+        this.movimentosPoke.add(mov1);
+        this.movimentosPoke.add(mov2);
+        this.movimentosPoke.add(mov3);
+        this.movimentosPoke.add(mov4);
     }
 
     public void setMovimentosPoke(ArrayList<Movimentos> movimentosPoke) {
         this.movimentosPoke = movimentosPoke;
     }
-
 //=================================================================================================================
 
     abstract void atacar();
-
 
 
     @Override
@@ -74,9 +51,9 @@ public abstract class Pokemons {
                 '}';
     }
 
-    public String mostraMovimentos(){
-        String listaMovimentos="";
-        listaMovimentos = "Movimentos: \n"+movimentosPoke;
+    public String mostraMovimentos() {
+        String listaMovimentos = "";
+        listaMovimentos = "Movimentos: \n" + movimentosPoke;
 
         return listaMovimentos;
     }

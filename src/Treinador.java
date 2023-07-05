@@ -2,18 +2,39 @@ import java.util.ArrayList;
 
 public class Treinador {
 
+    //  Criação das variáveis:
     private String nome;
-    private ArrayList<Pokemons> listaPoke  = new ArrayList<>();
-    static Charizard charizard =  new Charizard("Charizard","Fogo",200,100,Pokemons.getMovimentosPoke());
-    static Blastoise blastoise =  new Blastoise("Blastoise","Água",200,100,Pokemons.getMovimentosPoke());
-    static Venussaur venussaur =  new Venussaur("Venussaur","Planta",300,100,Pokemons.getMovimentosPoke());
-    static Onix onix =  new Onix("Onix","Pedra",250,100,Pokemons.getMovimentosPoke());
+    private ArrayList<Pokemons> listaPoke = new ArrayList<>();
+    private ArrayList<Pokemons> listaPokeAdversario = new ArrayList<>();
 
-    public Treinador(String nome){
+//======================================================================================================================
+
+    //  Criação dos Pokemons:
+    Charizard charizard = new Charizard("Charizard", "Fogo", 200, 100);
+    Gardevoir gardevoir = new Gardevoir("Gardevoir", "Psíquico", 200, 100);
+    Blastoise blastoise = new Blastoise("Blastoise", "Água", 200, 100);
+    Venussaur venussaur = new Venussaur("Venussaur", "Planta", 300, 100);
+    Onix onix = new Onix("Onix", "Pedra", 250, 100);
+    Bisharp bisharp = new Bisharp("Bisharp", "Sombrio", 250, 100);
+
+//======================================================================================================================
+
+    //  Adiciona os pokemons na lista do Adversario
+    public void adicionaListaAdversario() {
+        listaPokeAdversario.add(venussaur);
+        listaPokeAdversario.add(gardevoir);
+        listaPokeAdversario.add(bisharp);
+    }
+
+    //  Adiciona os pokemons na lista do Treinador Logado
+//  CONSTRUTOR
+    public Treinador(String nome) {
         this.nome = nome;
         listaPoke.add(charizard);
         listaPoke.add(blastoise);
         listaPoke.add(onix);
+
+        adicionaListaAdversario();
     }
 
     //Getters e Setters
@@ -28,19 +49,32 @@ public class Treinador {
     public ArrayList<Pokemons> getListaPoke() {
         return listaPoke;
     }
-//===================================================================
 
-    public void escolherMov(){
+    public ArrayList<Pokemons> getListaPokeAdversario() {
+        return listaPokeAdversario;
+    }
+
+    public void setListaPokeAdversario(ArrayList<Pokemons> listaPokeAdversario) {
+        this.listaPokeAdversario = listaPokeAdversario;
+    }
+
+//======================================================================================================================
+
+    public void escolherMov() {
+
+        for (Movimentos movimentos : charizard.getMovimentosPoke() ) {
+            System.out.println(movimentos.toString());
+        }
+    }
+
+    public void trocarPoke() {
 
     }
 
-    public void trocarPoke(){
+    public void desistir() {
+        System.exit(0);
 
     }
-    public void desistir(){
-
-    }
-
 
 
 }

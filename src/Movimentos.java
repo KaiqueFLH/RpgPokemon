@@ -5,9 +5,11 @@ public class Movimentos {
     //Criação dos atributos dos movimentos de cada pokemon
     private int dano;
     private String tipoDano;
+    private String nomeMov;
 
     //construtor
-    public Movimentos (int dano, String tipoDano){
+    public Movimentos (String nomeMov,int dano, String tipoDano){
+        this.nomeMov = nomeMov;
         this.dano = dano;
         this.tipoDano = tipoDano;
     }
@@ -15,7 +17,7 @@ public class Movimentos {
 
     @Override
     public String toString() {
-        return "Movimentos{" +
+        return nomeMov+" {" +
                 "dano=" + dano +
                 ", tipoDano='" + tipoDano + '\'' +
                 '}';
