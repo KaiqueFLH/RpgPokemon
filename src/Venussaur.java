@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Venussaur extends Pokemons {
 
     Movimentos matinhosCortantes = new Movimentos("Matinhos Cortantes",20,"Planta");
-    Movimentos pinicar = new Movimentos("Pinicar",30,"Água");
+    Movimentos pinicar = new Movimentos("Pinicar",30,"Planta");
     Movimentos ervaVenenosa = new Movimentos("Erva Venenosa",25,"Planta");
     Movimentos pauBrasil = new Movimentos("Pau Brasil",30,"Planta");
 
@@ -14,10 +14,5 @@ public class Venussaur extends Pokemons {
         this.adicionarAtaques(matinhosCortantes,pinicar,ervaVenenosa,pauBrasil);
     }
 
-    //função de atacar;
-    @Override
-    void atacar() {
-
-    }
 
 }

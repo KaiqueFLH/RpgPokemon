@@ -14,9 +14,4 @@ public class Gardevoir extends Pokemons{
         this.adicionarAtaques(recuperarVida,raioPsiquico,rajadaLunar,luzRuinas);
     }
 
-    //função de atacar;
-    @Override
-    void atacar() {
-
-    }
 }

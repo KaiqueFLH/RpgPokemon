@@ -14,9 +14,4 @@ public class Onix extends Pokemons{
         this.adicionarAtaques(jogaRocha,pedraDura,pesoRocha,punhoRochoso);
     }
 
-    //função de atacar;
-    @Override
-    void atacar() {
-
-    }
 }

@@ -7,6 +7,28 @@ public class Movimentos {
     private String tipoDano;
     private String nomeMov;
 
+//============================================================================================================================================
+
+//    GETTERS E SETTERS
+
+    public int getDano() {
+        return dano;
+    }
+
+    public void setDano(int dano) {
+        this.dano = dano;
+    }
+
+    public String getTipoDano() {
+        return tipoDano;
+    }
+
+    public void setTipoDano(String tipoDano) {
+        this.tipoDano = tipoDano;
+    }
+
+//============================================================================================================================================
+
     //construtor
     public Movimentos (String nomeMov,int dano, String tipoDano){
         this.nomeMov = nomeMov;

@@ -12,11 +12,4 @@ public class Charizard extends Pokemons {
         this.adicionarAtaques(rajadaDeFogo,vortexInfernal,espirroQuente,labaredaFlamejante);
     }
 
-    //função de atacar;
-    @Override
-    void atacar() {
-
-    }
-
-
 }

@@ -24,8 +24,19 @@ public abstract class Pokemons {
     public ArrayList<Movimentos> getMovimentosPoke() {
         return movimentosPoke;
     }
-//    Adiciona Ataques na lista individual de cada Pokemon
-    public void adicionarAtaques(Movimentos mov1,Movimentos mov2,Movimentos mov3,Movimentos mov4) {
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
+    //=========================================================================================================================================
+
+    //    Adiciona Ataques na lista individual de cada Pokemon
+    public void adicionarAtaques(Movimentos mov1, Movimentos mov2, Movimentos mov3, Movimentos mov4) {
         this.movimentosPoke.add(mov1);
         this.movimentosPoke.add(mov2);
         this.movimentosPoke.add(mov3);
@@ -37,7 +48,9 @@ public abstract class Pokemons {
     }
 //=================================================================================================================
 
-    abstract void atacar();
+    void atacar(Pokemons pokemonAdv, int dano) {
+        pokemonAdv.setVida(pokemonAdv.getVida() - dano);
+    }
 
 
     @Override

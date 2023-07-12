@@ -14,11 +14,5 @@ public class Bisharp extends Pokemons {
         this.adicionarAtaques(escuridao,sombras,punhoDeAco,almaCorrompida);
     }
 
-    //função de atacar;
-    @Override
-    void atacar() {
-
-    }
-
 
 }

@@ -6,6 +6,7 @@ public class Treinador {
     private String nome;
     private ArrayList<Pokemons> listaPoke = new ArrayList<>();
     private ArrayList<Pokemons> listaPokeAdversario = new ArrayList<>();
+    Pokemons pokemonLog;
 
 //======================================================================================================================
 
@@ -59,13 +60,6 @@ public class Treinador {
     }
 
 //======================================================================================================================
-
-    public void escolherMov() {
-
-        for (Movimentos movimentos : charizard.getMovimentosPoke() ) {
-            System.out.println(movimentos.toString());
-        }
-    }
 
     public void trocarPoke() {
 

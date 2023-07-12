@@ -14,11 +14,4 @@ public class Blastoise extends Pokemons {
         this.adicionarAtaques(cuspe,aguaMole,chuvaMolhada,rioSaoFrancisco);
     }
 
-    //função de atacar;
-    @Override
-    void atacar() {
-
-    }
-
-
 }
