@@ -74,9 +74,14 @@ public class Main {
 
                 }
 
-                if (treinadorLog.getListaPokeAdversario().get(indice2).getVida() == 0){
-                    System.out.println("O pokemon do seu adversário morreu.");
-                    treinadorLog.getListaPokeAdversario().remove(indice2);
+                if (treinadorLog.getListaPokeAdversario().get(indice2).getVida() <= 0){
+                    System.out.println("\n===============================\nO pokemon do seu adversário morreu.");
+                    if (treinadorLog.getListaPokeAdversario().size() !=0){
+                        treinadorLog.getListaPokeAdversario().remove(indice2);
+                    }
+                    if (treinadorLog.getListaPokeAdversario().size() == 0) {
+                        System.out.println("Você Venceu o seu Adversário e ganhou a liga Pokemon !!! Parabéns.");
+                    }
                     System.out.println("O treinador adversário joga:\n" + treinadorLog.getListaPokeAdversario().get(indice2).toString());
                     menuDeCombate(indice2);
                     System.out.println("O Ataque que você escolheu foi:\n" + (ataqueE.getMovimentosPoke().get(indice)));
@@ -84,7 +89,8 @@ public class Main {
                     System.out.println("A vida do " + treinadorLog.getListaPokeAdversario().get(indice2+1).getNome() + " Diminuiu para: " + treinadorLog.getListaPokeAdversario().get(indice2+1).getVida());
                 }
 
-                else if (ataqueE.getVida() == 0) {
+                else if (ataqueE.getVida() <= 0) {
+                    System.out.println("\n===============================\nO seu Pokemon acabou Morrendo.\nEscolha outro Pokemon agora mesmo!");
                     treinadorLog.getListaPoke().remove(indice2);
                     exibirPokemons();
                 }
@@ -113,7 +119,7 @@ public class Main {
 
         switch (indice) {
             case 1 -> exibirAtaques(indice2);
-            case 2 -> treinadorLog.trocarPoke();
+            case 2 -> exibirPokemons();
             case 3 -> treinadorLog.desistir();
         }
     }

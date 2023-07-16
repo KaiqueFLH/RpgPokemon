@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class Pokemons {
+public class Pokemons {
 
     private String nome;
     private String tipoPoke;
@@ -23,6 +23,14 @@ public abstract class Pokemons {
 
     public ArrayList<Movimentos> getMovimentosPoke() {
         return movimentosPoke;
+    }
+
+    public String getTipoPoke() {
+        return tipoPoke;
+    }
+
+    public void setTipoPoke(String tipoPoke) {
+        this.tipoPoke = tipoPoke;
     }
 
     public int getVida() {
@@ -49,7 +57,25 @@ public abstract class Pokemons {
 //=================================================================================================================
 
     void atacar(Pokemons pokemonAdv, int dano) {
-        pokemonAdv.setVida(pokemonAdv.getVida() - dano);
+        if(this.getTipoPoke().equals("Fogo") && pokemonAdv.getTipoPoke().equals("Planta")){
+            System.out.println("O seu Ataque é Super Efetivo!");
+            pokemonAdv.setVida(pokemonAdv.getVida() - dano*2);
+        }
+        else if(this.getTipoPoke().equals("Sombrio") && pokemonAdv.getTipoPoke().equals("Psiquico")){
+            System.out.println("O seu Ataque é Super Efetivo!");
+            pokemonAdv.setVida(pokemonAdv.getVida() - dano*2);
+        }
+        else if(pokemonAdv.getTipoPoke().equals("Agua") && this.getTipoPoke().equals("Fogo")){
+            System.out.println("O seu Ataque é Super Efetivo!");
+            pokemonAdv.setVida(pokemonAdv.getVida() - dano*2);
+        }
+        else if(pokemonAdv.getTipoPoke().equals("Agua") && this.getTipoPoke().equals("Pedra")){
+            System.out.println("O seu Ataque é Super Efetivo!");
+            pokemonAdv.setVida(pokemonAdv.getVida() - dano*2);
+        }
+        else {
+            pokemonAdv.setVida(pokemonAdv.getVida() - dano);
+        }
     }
 
 

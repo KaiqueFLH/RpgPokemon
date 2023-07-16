@@ -12,8 +12,8 @@ public class Treinador {
 
     //  Criação dos Pokemons:
     Charizard charizard = new Charizard("Charizard", "Fogo", 200, 100);
-    Gardevoir gardevoir = new Gardevoir("Gardevoir", "Psíquico", 200, 100);
-    Blastoise blastoise = new Blastoise("Blastoise", "Água", 200, 100);
+    Gardevoir gardevoir = new Gardevoir("Gardevoir", "Psiquico", 200, 100);
+    Blastoise blastoise = new Blastoise("Blastoise", "Agua", 200, 100);
     Venussaur venussaur = new Venussaur("Venussaur", "Planta", 300, 100);
     Onix onix = new Onix("Onix", "Pedra", 250, 100);
     Bisharp bisharp = new Bisharp("Bisharp", "Sombrio", 250, 100);
@@ -24,7 +24,7 @@ public class Treinador {
     public void adicionaListaAdversario() {
         listaPokeAdversario.add(venussaur);
         listaPokeAdversario.add(gardevoir);
-        listaPokeAdversario.add(bisharp);
+        listaPokeAdversario.add(blastoise);
     }
 
     //  Adiciona os pokemons na lista do Treinador Logado
@@ -32,7 +32,7 @@ public class Treinador {
     public Treinador(String nome) {
         this.nome = nome;
         listaPoke.add(charizard);
-        listaPoke.add(blastoise);
+        listaPoke.add(bisharp);
         listaPoke.add(onix);
 
         adicionaListaAdversario();
