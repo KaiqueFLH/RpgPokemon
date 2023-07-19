@@ -38,7 +38,10 @@ public class Main {
             if (indice == i) {
                 System.out.println("O Pokemon que Você escolheu foi:\n" + treinadorLog.getListaPoke().get(i).toString() + "\n");
                 System.out.println("O Pokemon do Seu Adversário é:\n" + treinadorLog.getListaPokeAdversario().get(i).toString());
-
+                if (treinadorLog.getListaPokeAdversario().size()<indice){
+                    System.out.println("O Pokemon que Você escolheu foi:\n" + treinadorLog.getListaPoke().get(i).toString() + "\n");
+                    System.out.println("O Pokemon do Seu Adversário é:\n" + treinadorLog.getListaPokeAdversario().get(indice-2).toString());
+                }
             }
         }
 
@@ -71,12 +74,15 @@ public class Main {
                     System.out.println("\nO Ataque do adversário foi:\n" + (ataqueEAdv.getMovimentosPoke().get(indice)));
                     ataqueEAdv.atacar(treinadorLog.getListaPoke().get(indice2), ataqueEAdv.getMovimentosPoke().get(indice).getDano());
                     System.out.println("A vida do " + treinadorLog.getListaPoke().get(indice2).getNome() + " Diminuiu para: " + treinadorLog.getListaPoke().get(indice2).getVida());
+                    if (treinadorLog.getListaPokeAdversario().get(indice2).getVida() > 0) {
+                        menuDeCombate(indice2);
+                    }
 
                 }
 
-                if (treinadorLog.getListaPokeAdversario().get(indice2).getVida() <= 0){
+                if (treinadorLog.getListaPokeAdversario().get(indice2).getVida() <= 0) {
                     System.out.println("\n===============================\nO pokemon do seu adversário morreu.");
-                    if (treinadorLog.getListaPokeAdversario().size() !=0){
+                    if (treinadorLog.getListaPokeAdversario().size() != 0) {
                         treinadorLog.getListaPokeAdversario().remove(indice2);
                     }
                     if (treinadorLog.getListaPokeAdversario().size() == 0) {
@@ -85,18 +91,15 @@ public class Main {
                     System.out.println("O treinador adversário joga:\n" + treinadorLog.getListaPokeAdversario().get(indice2).toString());
                     menuDeCombate(indice2);
                     System.out.println("O Ataque que você escolheu foi:\n" + (ataqueE.getMovimentosPoke().get(indice)));
-                    ataqueE.atacar(treinadorLog.getListaPokeAdversario().get(indice2+1), ataqueE.getMovimentosPoke().get(indice).getDano());
-                    System.out.println("A vida do " + treinadorLog.getListaPokeAdversario().get(indice2+1).getNome() + " Diminuiu para: " + treinadorLog.getListaPokeAdversario().get(indice2+1).getVida());
-                }
-
-                else if (ataqueE.getVida() <= 0) {
+                    ataqueE.atacar(treinadorLog.getListaPokeAdversario().get(indice2 + 1), ataqueE.getMovimentosPoke().get(indice).getDano());
+                    System.out.println("A vida do " + treinadorLog.getListaPokeAdversario().get(indice2 + 1).getNome() + " Diminuiu para: " + treinadorLog.getListaPokeAdversario().get(indice2 + 1).getVida());
+                } else if (ataqueE.getVida() <= 0) {
                     System.out.println("\n===============================\nO seu Pokemon acabou Morrendo.\nEscolha outro Pokemon agora mesmo!");
                     treinadorLog.getListaPoke().remove(indice2);
                     exibirPokemons();
                 }
             }
         }
-
 
 
     }
@@ -120,7 +123,26 @@ public class Main {
         switch (indice) {
             case 1 -> exibirAtaques(indice2);
             case 2 -> exibirPokemons();
-            case 3 -> treinadorLog.desistir();
+            case 3 -> desistir(indice2);
         }
+    }
+
+    public static void desistir(int indice2) {
+        System.out.println("Você tem certeza que deseja fugir da batalha?");
+        System.out.println("""
+                [1] - Sim
+                [2] - Não
+                """);
+        int indice = sc.nextInt();
+
+        switch (indice) {
+            case 1:
+                System.exit(0);
+                break;
+            case 2:
+                menuDeCombate(indice2);
+                break;
+        }
+
     }
 }
