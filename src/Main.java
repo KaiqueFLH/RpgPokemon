@@ -34,10 +34,10 @@ public class Main {
         } while (indice < 0 || indice > 2);
 
 
-        System.out.println("O Pokemon que Você escolheu foi:\n" + treinadorLog.getListaPoke().get(indice).toString() + "\n");
+        System.out.println("Seu Pokemon:\n" + treinadorLog.getListaPoke().get(indice).toString() + "\n");
         int aux = indiceValido(indice);
-        
-        System.out.println("Pokemon adversário: " + treinadorLog.getListaPokeAdversario().get(aux).toString());
+
+        System.out.println("Pokemon adversário:\n" + treinadorLog.getListaPokeAdversario().get(aux).toString());
 
         menuDeCombate(indice);
     }
@@ -55,11 +55,12 @@ public class Main {
         } while (indice < 0 || indice > 2);
 
 
-        System.out.println("O Pokemon que Você escolheu foi:\n" + treinadorLog.getListaPoke().get(indice).toString() + "\n");
+        System.out.println("O seu Pokemon agora é o:\n" + treinadorLog.getListaPoke().get(indice).toString() + "\n");
 
         menuDeCombate(indice);
     }
-    
+
+
     private static int indiceValido(int indice) {
         if (indice >= treinadorLog.getListaPokeAdversario().size()) {
             return indice - 1;
@@ -70,59 +71,62 @@ public class Main {
     public static void exibirAtaques(int indice2) {
         int aux = indiceValido(indice2);
         int indice = 0;
-        Pokemons ataqueE = treinadorLog.getListaPoke().get(indice2);
-        Pokemons ataqueEAdv = treinadorLog.getListaPokeAdversario().get(aux);
+        Pokemons meuPokemon = treinadorLog.getListaPoke().get(indice2);
+        Pokemons pokemonAdversario = treinadorLog.getListaPokeAdversario().get(aux);
 
-        for (int i = 0; ataqueE.getVida() != 0 || treinadorLog.getListaPokeAdversario().get(aux).getVida() != 0; ) {
-            do {
-                for (int b = 0; b < Objects.requireNonNull(treinadorLog.getListaPoke()).size(); b++) {
-                    if (indice2 == b) {
-                        System.out.println("\nEscolha um ataque presente na lista abaixo:\n" + treinadorLog.getListaPoke().get(b).mostraMovimentos());
-                    }
-                }
-                if (treinadorLog.getListaPoke() != null) {
-                    indice = sc.nextInt();
-                }
-            } while (indice < 0 || indice > 3);
+        // Pergurtar para o usuário, que ataque ele quer.
+        do {
+            System.out.println("\nEscolha um ataque presente na lista abaixo:\n" + meuPokemon.mostraMovimentos());
+            indice = sc.nextInt();
+        } while (indice < 0 || indice >= meuPokemon.getMovimentosPoke().size());
 
+        // Escolhendo meus ataques e definindo o ataque do adversário.
+        System.out.println("O Ataque que você escolheu foi:\n" + (meuPokemon.getMovimentosPoke().get(indice)));
+        meuPokemon.atacar(pokemonAdversario, meuPokemon.getMovimentosPoke().get(indice).getDano());
+        System.out.println("A vida do " + pokemonAdversario.getNome() + " Diminuiu para: " + pokemonAdversario.getVida());
+        System.out.println("\nO Ataque do adversário foi:\n" + (pokemonAdversario.getMovimentosPoke().get(indice)));
+        pokemonAdversario.atacar(meuPokemon, pokemonAdversario.getMovimentosPoke().get(indice).getDano());
+        System.out.println("A vida do " + meuPokemon.getNome() + " Diminuiu para: " + meuPokemon.getVida());
 
-            for (int b = 0; b < Objects.requireNonNull(treinadorLog.getListaPoke()).size(); b++) {
-                if (indice2 == b) {
-                    System.out.println("O Ataque que você escolheu foi:\n" + (ataqueE.getMovimentosPoke().get(indice)));
-                    ataqueE.atacar(treinadorLog.getListaPokeAdversario().get(aux), ataqueE.getMovimentosPoke().get(indice).getDano());
-                    System.out.println("A vida do " + treinadorLog.getListaPokeAdversario().get(aux).getNome() + " Diminuiu para: " + treinadorLog.getListaPokeAdversario().get(aux).getVida());
-                    System.out.println("\nO Ataque do adversário foi:\n" + (ataqueEAdv.getMovimentosPoke().get(indice)));
-                    ataqueEAdv.atacar(treinadorLog.getListaPoke().get(indice2), ataqueEAdv.getMovimentosPoke().get(indice).getDano());
-                    System.out.println("A vida do " + treinadorLog.getListaPoke().get(indice2).getNome() + " Diminuiu para: " + treinadorLog.getListaPoke().get(indice2).getVida());
-                    if (treinadorLog.getListaPokeAdversario().get(aux).getVida() > 0) {
-                        menuDeCombate(indice2);
-                    }
+        // Verifica se o seu pokemon foi derrotado e se você ganhou a partida
+        if (pokemonAdversario.getVida() <= 0) {
+            System.out.println("\n===============================\nO pokemon do seu adversário foi derrotado.");
 
-                }
+            if (!treinadorLog.getListaPokeAdversario().isEmpty()) {
+                treinadorLog.getListaPokeAdversario().remove(aux);
+            }
 
-                if (treinadorLog.getListaPokeAdversario().get(aux).getVida() <= 0) {
-                    System.out.println("\n===============================\nO pokemon do seu adversário morreu.");
-                    if (treinadorLog.getListaPokeAdversario().size() != 0) {
-                        treinadorLog.getListaPokeAdversario().remove(indice2);
-                    }
-                    if (treinadorLog.getListaPokeAdversario().size() == 0) {
-                        System.out.println("Você Venceu o seu Adversário e ganhou a liga Pokemon !!! Parabéns.");
-                    }
-                    System.out.println("O treinador adversário joga:\n" + treinadorLog.getListaPokeAdversario().get(aux).toString());
-                    menuDeCombate(indice2);
-                    System.out.println("O Ataque que você escolheu foi:\n" + (ataqueE.getMovimentosPoke().get(indice)));
-                    ataqueE.atacar(treinadorLog.getListaPokeAdversario().get(indice2 + 1), ataqueE.getMovimentosPoke().get(indice).getDano());
-                    System.out.println("A vida do " + treinadorLog.getListaPokeAdversario().get(indice2 + 1).getNome() + " Diminuiu para: " + treinadorLog.getListaPokeAdversario().get(indice2 + 1).getVida());
-                } else if (ataqueE.getVida() <= 0) {
-                    System.out.println("\n===============================\nO seu Pokemon acabou Morrendo.\nEscolha outro Pokemon agora mesmo!");
-                    treinadorLog.getListaPoke().remove(indice2);
+            if (treinadorLog.getListaPokeAdversario().isEmpty()) {
+                System.out.println("Você Venceu o seu Adversário e ganhou a liga Pokemon !!! Parabéns.");
+            }
+
+            if (!treinadorLog.getListaPokeAdversario().isEmpty()){
+                System.out.println("O treinador adversário joga:\n" + treinadorLog.getListaPokeAdversario().get(aux).toString());
+                menuDeCombate(indice2);
+            }
+
+        }
+        // Verifica se o pokemon do Adversário foi derrotado e se ele ganhou a partida
+        else if (meuPokemon.getVida() <= 0) {
+            System.out.println("\n===============================\nO seu Pokemon foi derrotado.");
+
+            if (!treinadorLog.getListaPoke().isEmpty()) {
+                treinadorLog.getListaPoke().remove(indice2);
+                if (!treinadorLog.getListaPoke().isEmpty()){
+                    System.out.println("O treinador continua com:\n" + treinadorLog.getListaPokeAdversario().get(aux).toString());
+                    System.out.println("\n Escolha seu novo pokemon para continuar jogando.");
                     exibirPokemons();
                 }
             }
+
+            if (treinadorLog.getListaPoke().isEmpty()) {
+                System.out.println("Você Perdeu :(");
+            }
+        } else {
+            menuDeCombate(indice2);
         }
-
-
     }
+
 
 
     public static void menuDeCombate(int indice2) {

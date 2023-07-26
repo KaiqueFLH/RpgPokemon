@@ -16,6 +16,14 @@ public class Pokemons {
         this.level = level;
     }
 
+    public Pokemons(Pokemons other) {
+        this.nome = other.nome;
+        this.tipoPoke = other.tipoPoke;
+        this.vida = other.vida;
+        this.level = other.level;
+        this.movimentosPoke = new ArrayList<>(other.movimentosPoke); // Faz uma cópia da lista de movimentos
+    }
+
     //Getters e Setters de cada Atributo.
     public String getNome() {
         return nome;
@@ -39,6 +47,14 @@ public class Pokemons {
 
     public void setVida(int vida) {
         this.vida = vida;
+    }
+
+    public int getLevel() {
+        return level;
+    }
+
+    public void setLevel(int level) {
+        this.level = level;
     }
 
     //=========================================================================================================================================
@@ -65,14 +81,15 @@ public class Pokemons {
             System.out.println("O seu Ataque é Super Efetivo!");
             pokemonAdv.setVida(pokemonAdv.getVida() - dano*2);
         }
-        else if(pokemonAdv.getTipoPoke().equals("Agua") && this.getTipoPoke().equals("Fogo")){
+        else if(this.getTipoPoke().equals("Agua") && pokemonAdv.getTipoPoke().equals("Fogo")){
             System.out.println("O seu Ataque é Super Efetivo!");
             pokemonAdv.setVida(pokemonAdv.getVida() - dano*2);
         }
-        else if(pokemonAdv.getTipoPoke().equals("Agua") && this.getTipoPoke().equals("Pedra")){
+        else if(this.getTipoPoke().equals("Agua") && pokemonAdv.getTipoPoke().equals("Pedra")){
             System.out.println("O seu Ataque é Super Efetivo!");
             pokemonAdv.setVida(pokemonAdv.getVida() - dano*2);
         }
+
         else {
             pokemonAdv.setVida(pokemonAdv.getVida() - dano);
         }

@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Gardevoir extends Pokemons{
 
-    Movimentos recuperarVida = new Movimentos("Recuperar Vida",40,"Psiquico");
+    Movimentos recuperarVida = new Movimentos("Glitter",20,"Fada");
     Movimentos raioPsiquico = new Movimentos("Raio Psíquico",30,"Psiquico");
     Movimentos rajadaLunar = new Movimentos("Rajada Lunar",25,"Psiquico");
     Movimentos luzRuinas = new Movimentos("Luz das Ruínas",15,"Psiquico");

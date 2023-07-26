@@ -1,6 +1,5 @@
 public class Movimentos {
 
-//    private String efeitoBoiola;
 
     //Criação dos atributos dos movimentos de cada pokemon
     private int dano;
@@ -27,7 +26,15 @@ public class Movimentos {
         this.tipoDano = tipoDano;
     }
 
-//============================================================================================================================================
+    public String getNomeMov() {
+        return nomeMov;
+    }
+
+    public void setNomeMov(String nomeMov) {
+        this.nomeMov = nomeMov;
+    }
+
+    //============================================================================================================================================
 
     //construtor
     public Movimentos (String nomeMov,int dano, String tipoDano){

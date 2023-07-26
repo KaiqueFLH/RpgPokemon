@@ -61,5 +61,11 @@ public class Treinador {
 
 //======================================================================================================================
 
-
+//    public ArrayList<Pokemons> copiaListaPokeAdversario() {
+//        ArrayList<Pokemons> copiaListaPoke = new ArrayList<>();
+//        copiaListaPoke.add(venussaur);
+//        copiaListaPoke.add(gardevoir);
+//        copiaListaPoke.add(blastoise);
+//        return copiaListaPoke;
+//    }
 }
