@@ -58,14 +58,4 @@ public class Treinador {
     public void setListaPokeAdversario(ArrayList<Pokemons> listaPokeAdversario) {
         this.listaPokeAdversario = listaPokeAdversario;
     }
-
-//======================================================================================================================
-
-//    public ArrayList<Pokemons> copiaListaPokeAdversario() {
-//        ArrayList<Pokemons> copiaListaPoke = new ArrayList<>();
-//        copiaListaPoke.add(venussaur);
-//        copiaListaPoke.add(gardevoir);
-//        copiaListaPoke.add(blastoise);
-//        return copiaListaPoke;
-//    }
 }

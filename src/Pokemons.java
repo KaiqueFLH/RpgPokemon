@@ -16,13 +16,6 @@ public class Pokemons {
         this.level = level;
     }
 
-    public Pokemons(Pokemons other) {
-        this.nome = other.nome;
-        this.tipoPoke = other.tipoPoke;
-        this.vida = other.vida;
-        this.level = other.level;
-        this.movimentosPoke = new ArrayList<>(other.movimentosPoke); // Faz uma cópia da lista de movimentos
-    }
 
     //Getters e Setters de cada Atributo.
     public String getNome() {
@@ -73,24 +66,19 @@ public class Pokemons {
 //=================================================================================================================
 
     void atacar(Pokemons pokemonAdv, int dano) {
-        if(this.getTipoPoke().equals("Fogo") && pokemonAdv.getTipoPoke().equals("Planta")){
+        if (this.getTipoPoke().equals("Fogo") && pokemonAdv.getTipoPoke().equals("Planta")) {
             System.out.println("O seu Ataque é Super Efetivo!");
-            pokemonAdv.setVida(pokemonAdv.getVida() - dano*2);
-        }
-        else if(this.getTipoPoke().equals("Sombrio") && pokemonAdv.getTipoPoke().equals("Psiquico")){
+            pokemonAdv.setVida(pokemonAdv.getVida() - dano * 2);
+        } else if (this.getTipoPoke().equals("Sombrio") && pokemonAdv.getTipoPoke().equals("Psiquico")) {
             System.out.println("O seu Ataque é Super Efetivo!");
-            pokemonAdv.setVida(pokemonAdv.getVida() - dano*2);
-        }
-        else if(this.getTipoPoke().equals("Agua") && pokemonAdv.getTipoPoke().equals("Fogo")){
+            pokemonAdv.setVida(pokemonAdv.getVida() - dano * 2);
+        } else if (this.getTipoPoke().equals("Agua") && pokemonAdv.getTipoPoke().equals("Fogo")) {
             System.out.println("O seu Ataque é Super Efetivo!");
-            pokemonAdv.setVida(pokemonAdv.getVida() - dano*2);
-        }
-        else if(this.getTipoPoke().equals("Agua") && pokemonAdv.getTipoPoke().equals("Pedra")){
+            pokemonAdv.setVida(pokemonAdv.getVida() - dano * 2);
+        } else if (this.getTipoPoke().equals("Agua") && pokemonAdv.getTipoPoke().equals("Pedra")) {
             System.out.println("O seu Ataque é Super Efetivo!");
-            pokemonAdv.setVida(pokemonAdv.getVida() - dano*2);
-        }
-
-        else {
+            pokemonAdv.setVida(pokemonAdv.getVida() - dano * 2);
+        } else {
             pokemonAdv.setVida(pokemonAdv.getVida() - dano);
         }
     }
@@ -109,7 +97,10 @@ public class Pokemons {
 
     public String mostraMovimentos() {
         String listaMovimentos = "";
-        listaMovimentos = "Movimentos: \n" + movimentosPoke;
+        listaMovimentos = "Movimentos: \n=========================\nAtaque 0 - " + movimentosPoke.get(0) + "\nAtaque 1 - " +
+                movimentosPoke.get(1) + "\nAtaque 2 - " + movimentosPoke.get(2) +
+                "\nAtaque 3 - " + movimentosPoke.get(3) +
+                "\n=========================" + "\n";
 
         return listaMovimentos;
     }

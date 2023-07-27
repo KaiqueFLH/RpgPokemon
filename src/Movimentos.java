@@ -46,9 +46,8 @@ public class Movimentos {
 
     @Override
     public String toString() {
-        return nomeMov+" {" +
-                "dano=" + dano +
-                ", tipoDano='" + tipoDano + '\'' +
-                '}';
+        return nomeMov+": {" +
+                "Dano:" + dano +
+                ", tipoDano='" + tipoDano + '\'' +"}";
     }
 }
