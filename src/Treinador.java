@@ -27,9 +27,9 @@ public class Treinador {
     Rhyperior rhyperior = new Rhyperior("Rhyperior", "Pedra", 250, 100);
 
     //Criação dos Pokemons da dificuldade 2:
+    Kyogre kyogre = new Kyogre("Kyogre", "Agua", 450, 100);
+    Rayquaza rayquaza = new Rayquaza("Rayquaza", "Pedra", 450, 100);
     Gengar gengar = new Gengar("Gengar", "Fantasma", 250, 100);
-    Rayquaza rayquaza = new Rayquaza("Rayquaza", "Pedra", 4000, 100);
-    Kyogre kyogre = new Kyogre("Kyogre", "Agua", 400, 100);
 
 //======================================================================================================================
 
@@ -44,9 +44,9 @@ public class Treinador {
             listaPokeAdversario.add(lucario);
             listaPokeAdversario.add(rhyperior);
         }else if(dificuldade == 2){
-            listaPokeAdversario.add(gengar);
-            listaPokeAdversario.add(rayquaza);
             listaPokeAdversario.add(kyogre);
+            listaPokeAdversario.add(rayquaza);
+            listaPokeAdversario.add(gengar);
         }
     }
 
