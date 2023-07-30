@@ -72,10 +72,16 @@ public class Pokemons {
         } else if (this.getTipoPoke().equals("Sombrio") && pokemonAdv.getTipoPoke().equals("Psiquico")) {
             System.out.println("O seu Ataque é Super Efetivo!");
             pokemonAdv.setVida(pokemonAdv.getVida() - dano * 2);
+        }else if (this.getTipoPoke().equals("Sombrio") && pokemonAdv.getTipoPoke().equals("Fantasma")) {
+            System.out.println("O seu Ataque é Super Efetivo!");
+            pokemonAdv.setVida(pokemonAdv.getVida() - dano * 2);
         } else if (this.getTipoPoke().equals("Agua") && pokemonAdv.getTipoPoke().equals("Fogo")) {
             System.out.println("O seu Ataque é Super Efetivo!");
             pokemonAdv.setVida(pokemonAdv.getVida() - dano * 2);
-        } else if (this.getTipoPoke().equals("Agua") && pokemonAdv.getTipoPoke().equals("Pedra")) {
+        } else if (this.getTipoPoke().equals("Lutador") && pokemonAdv.getTipoPoke().equals("Sombrio")) {
+            System.out.println("O seu Ataque é Super Efetivo!");
+            pokemonAdv.setVida(pokemonAdv.getVida() - dano * 2);
+        }else if (this.getTipoPoke().equals("Agua") && pokemonAdv.getTipoPoke().equals("Pedra")) {
             System.out.println("O seu Ataque é Super Efetivo!");
             pokemonAdv.setVida(pokemonAdv.getVida() - dano * 2);
         } else {
