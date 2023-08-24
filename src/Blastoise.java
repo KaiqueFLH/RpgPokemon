@@ -1,17 +1,41 @@
-import java.util.ArrayList;
+public class Blastoise extends Pokemon {
 
-public class Blastoise extends Pokemons {
-
-    Movimentos cuspe = new Movimentos("Cuspe",20,"Água");
-    Movimentos aguaMole = new Movimentos("Espirro Frio",30,"Água");
-    Movimentos chuvaMolhada = new Movimentos("Chuva Molhada",25,"Água");
-    Movimentos rioSaoFrancisco = new Movimentos("Rio São Francisco",30,"Água");
+    Movimento espirroFrio = new Movimento("Espirro Frio", 0, "Gelo", true);
+    Movimento cuspe = new Movimento("Cuspe", 30, "Água", false);
+    Movimento chuvaMolhada = new Movimento("Chuva Molhada", 25, "Água", false);
+    Movimento rioSaoFrancisco = new Movimento("Rio São Francisco", 30, "Água", false);
 
 
     //construtor
-    public Blastoise(String nome, String tipoPoke, int vida, int level ) {
+    public Blastoise(String nome, String tipoPoke, int vida, int level) {
         super(nome, tipoPoke, vida, level);
-        this.adicionarAtaques(cuspe,aguaMole,chuvaMolhada,rioSaoFrancisco);
+        this.adicionarAtaques(cuspe, espirroFrio, chuvaMolhada, rioSaoFrancisco);
+    }
+
+
+    @Override
+    void atacar(Pokemon pokemonAdv, int dano, int indice) {
+
+
+        if (this.getParalizado() <= 0) {
+            if (this.getTipoPoke().equals("Agua") && pokemonAdv.getTipoPoke().equals("Fogo")) {
+                System.out.println("O seu Ataque é Super Efetivo!");
+                pokemonAdv.setVida(pokemonAdv.getVida() - dano * 2);
+            } else if (this.getTipoPoke().equals("Agua") && pokemonAdv.getTipoPoke().equals("Pedra")) {
+                System.out.println("O seu Ataque é Super Efetivo!");
+                pokemonAdv.setVida(pokemonAdv.getVida() - dano * 2);
+            } else {
+                pokemonAdv.setVida(pokemonAdv.getVida() - dano);
+            }
+            if (this.getMovimentosPoke().get(indice).isStatus()) {
+                pokemonAdv.setParalizado(3);
+            }
+        }
+        else{
+            System.out.println("Paralizado!");
+        }
+
+
     }
 
 }

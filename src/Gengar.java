@@ -1,13 +1,31 @@
-public class Gengar extends Pokemons{
-    Movimentos berroFantasma = new Movimentos("Berro Fantasma",20,"Fantasma");
-    Movimentos bolaSombria = new Movimentos("Bola Sombria",30,"Fantasma");
-    Movimentos comedorDeSonhos = new Movimentos("Comedor de Sonhos",25,"Fantasma");
-    Movimentos maldicao = new Movimentos("Maldição",30,"Fantasma");
+public class Gengar extends Pokemon {
+    Movimento berroFantasma = new Movimento("Berro Fantasma",20,"Fantasma",false);
+    Movimento bolaSombria = new Movimento("Bola Sombria",30,"Fantasma",false);
+    Movimento botaDormir = new Movimento("Bota pra Dormir",0,"Fantasma",true);
+    Movimento maldicao = new Movimento("Maldição",30,"Fantasma",false);
 
 
     //construtor
     public Gengar(String nome, String tipoPoke, int vida, int level ) {
         super(nome, tipoPoke, vida, level);
-        this.adicionarAtaques(berroFantasma,bolaSombria,comedorDeSonhos,maldicao);
+        this.adicionarAtaques(berroFantasma,bolaSombria,botaDormir,maldicao);
+    }
+
+    @Override
+    void atacar(Pokemon pokemonAdv, int dano, int indice) {
+        if (this.getParalizado() <= 0) {
+            if (this.getTipoPoke().equals("Fantasma") && pokemonAdv.getTipoPoke().equals("Psiquico")) {
+                System.out.println("O seu Ataque é Super Efetivo!");
+                pokemonAdv.setVida(pokemonAdv.getVida() - dano * 2);
+            } else {
+                pokemonAdv.setVida(pokemonAdv.getVida() - dano);
+            }
+            if (this.getMovimentosPoke().get(indice).isStatus()) {
+                pokemonAdv.setParalizado(3);
+            }
+        }
+        else{
+            System.out.println("Paralizado!");
+        }
     }
 }

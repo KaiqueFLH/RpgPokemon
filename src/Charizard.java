@@ -1,15 +1,29 @@
-import java.util.ArrayList;
+public class Charizard extends Pokemon {
 
-public class Charizard extends Pokemons {
-
-    Movimentos rajadaDeFogo = new Movimentos("Rajada de Fogo",20,"Fogo");
-    Movimentos vortexInfernal = new Movimentos("Vortex Infernal",30,"Fogo");
-    Movimentos espirroQuente = new Movimentos("Espirro Quente",25,"Fogo");
-    Movimentos labaredaFlamejante = new Movimentos("Labareda Flamejante",15,"Fogo");
+    Movimento rajadaDeFogo = new Movimento("Rajada de Fogo",20,"Fogo",false);
+    Movimento vortexInfernal = new Movimento("Vortex Infernal",30,"Fogo",false);
+    Movimento espirroQuente = new Movimento("Espirro Quente",25,"Fogo",false);
+    Movimento labaredaFlamejante = new Movimento("Labareda Flamejante",15,"Fogo",false);
     //construtor
     public Charizard(String nome, String tipoPoke,int vida,int level){
         super(nome, tipoPoke, vida, level);
         this.adicionarAtaques(rajadaDeFogo,vortexInfernal,espirroQuente,labaredaFlamejante);
+    }
+
+    @Override
+    void atacar(Pokemon pokemonAdv, int dano, int indice) {
+        if (this.getParalizado() <= 0) {
+            if (this.getTipoPoke().equals("Fogo") && pokemonAdv.getTipoPoke().equals("Planta")) {
+                System.out.println("O seu Ataque é Super Efetivo!");
+                pokemonAdv.setVida(pokemonAdv.getVida() - dano * 2);
+            } else {
+                pokemonAdv.setVida(pokemonAdv.getVida() - dano);
+            }
+        }
+        else{
+            System.out.println("Paralizado!");
+        }
+
     }
 
 }

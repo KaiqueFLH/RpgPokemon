@@ -1,10 +1,19 @@
-public class Movimentos {
+public class Movimento {
 
 
     //Criação dos atributos dos movimentos de cada pokemon
     private int dano;
     private String tipoDano;
     private String nomeMov;
+    private boolean status;
+
+    //construtor
+    public Movimento(String nomeMov, int dano, String tipoDano, boolean status){
+        this.nomeMov = nomeMov;
+        this.dano = dano;
+        this.tipoDano = tipoDano;
+        this.status = status;
+    }
 
 //============================================================================================================================================
 
@@ -34,14 +43,17 @@ public class Movimentos {
         this.nomeMov = nomeMov;
     }
 
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
     //============================================================================================================================================
 
-    //construtor
-    public Movimentos (String nomeMov,int dano, String tipoDano){
-        this.nomeMov = nomeMov;
-        this.dano = dano;
-        this.tipoDano = tipoDano;
-    }
+
 
 
     @Override

@@ -1,17 +1,33 @@
-import java.util.ArrayList;
+public class Venussaur extends Pokemon {
 
-public class Venussaur extends Pokemons {
-
-    Movimentos matinhosCortantes = new Movimentos("Matinhos Cortantes",20,"Planta");
-    Movimentos pinicar = new Movimentos("Pinicar",30,"Planta");
-    Movimentos ervaVenenosa = new Movimentos("Erva Venenosa",25,"Planta");
-    Movimentos pauBrasil = new Movimentos("Pau Brasil",30,"Planta");
+    Movimento matinhosCortantes = new Movimento("Matinhos Cortantes",20,"Planta",false);
+    Movimento pinicar = new Movimento("Pinicar",30,"Planta",false);
+    Movimento soneca = new Movimento("Soneca",0,"Sleep" ,true);
+    Movimento pauBrasil = new Movimento("Pau Brasil",30,"Planta",false);
 
 
     //construtor
     public Venussaur(String nome, String tipoPoke, int vida, int level ) {
         super(nome, tipoPoke, vida, level);
-        this.adicionarAtaques(matinhosCortantes,pinicar,ervaVenenosa,pauBrasil);
+        this.adicionarAtaques(matinhosCortantes,pinicar,soneca,pauBrasil);
+    }
+
+    @Override
+    void atacar(Pokemon pokemonAdv, int dano, int indice) {
+        if (this.getParalizado() <= 0) {
+            if (this.getTipoPoke().equals("Planta") && pokemonAdv.getTipoPoke().equals("Pedra")) {
+                System.out.println("O seu Ataque é Super Efetivo!");
+                pokemonAdv.setVida(pokemonAdv.getVida() - dano * 2);
+            } else {
+                pokemonAdv.setVida(pokemonAdv.getVida() - dano);
+            }
+            if (this.getMovimentosPoke().get(indice).isStatus()) {
+                pokemonAdv.setParalizado(3);
+            }
+        }
+        else{
+            System.out.println("Paralizado!");
+        }
     }
 
 
