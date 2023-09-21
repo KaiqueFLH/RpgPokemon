@@ -1,11 +1,12 @@
 import java.util.ArrayList;
 
-public abstract class Pokemon {
+public abstract class Pokemon implements IAtaque,IEvolucao {
 
     private String nome;
     private String tipoPoke;
     private int vida;
     private int level;
+    private int qtdPokeAdvDerrotados=0;
     private ArrayList<Movimento> movimentoPoke = new ArrayList<>();
     private int paralizado;
 
@@ -15,6 +16,7 @@ public abstract class Pokemon {
         this.vida = vida;
         this.level = level;
         this.paralizado = 0;
+        this.qtdPokeAdvDerrotados = 0;
     }
 
 
@@ -58,7 +60,15 @@ public abstract class Pokemon {
     public void setParalizado(int paralizado) {
         this.paralizado = paralizado;
     }
-    //=========================================================================================================================================
+
+    public int getQtdPokeAdvDerrotados() {
+        return qtdPokeAdvDerrotados;
+    }
+
+    public void setQtdPokeAdvDerrotados(int qtdPokeAdvDerrotados) {
+        this.qtdPokeAdvDerrotados = qtdPokeAdvDerrotados;
+    }
+//=========================================================================================================================================
 
     //    Adiciona Ataques na lista individual de cada Pokemon
     public void adicionarAtaques(Movimento mov1, Movimento mov2, Movimento mov3, Movimento mov4) {
@@ -81,8 +91,6 @@ public abstract class Pokemon {
             System.out.println("A vida do " + this.getNome() + " Diminuiu para: " + this.getVida());
         }
     }
-
-    abstract void atacar(Pokemon pokemonAdv, int dano,int indice);
 
 //    abstract void curar(Pokemon pokemonAdv, int dano);
 

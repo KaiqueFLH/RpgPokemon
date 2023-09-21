@@ -12,12 +12,21 @@ public class Rayquaza extends Pokemon {
     }
 
     @Override
-    void atacar(Pokemon pokemonAdv, int dano, int indice) {
+    public void atacar(Pokemon pokemonAdv, int dano, int indice) {
         if (this.getParalizado() <= 0) {
             pokemonAdv.setVida(pokemonAdv.getVida() - dano);
         }
         else{
             System.out.println("Paralizado!");
         }
+    }
+
+    @Override
+    public String UpgradeLevel(Pokemon pokemon) {
+        int qtdAdvAntigo = this.getQtdPokeAdvDerrotados();
+        if (this.getQtdPokeAdvDerrotados() == qtdAdvAntigo+1){
+            return this.getNome()+" Subiu para o level: " + this.getLevel();
+        }
+        else return null;
     }
 }

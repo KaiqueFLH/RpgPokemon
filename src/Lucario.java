@@ -1,8 +1,8 @@
 public class Lucario extends Pokemon {
-    Movimento socoExplosivo = new Movimento("Soco Explosivo", 35, "Lutador",false);
-    Movimento chuteGiratorio = new Movimento("Chute Giratório", 20, "Lutador",false);
-    Movimento rasteira = new Movimento("Soco Explosivo", 25, "Lutador",false);
-    Movimento soco = new Movimento("Soco", 15, "Lutador",false);
+    Movimento socoExplosivo = new Movimento("Soco Explosivo", 35, "Lutador", false);
+    Movimento chuteGiratorio = new Movimento("Chute Giratório", 20, "Lutador", false);
+    Movimento rasteira = new Movimento("Soco Explosivo", 25, "Lutador", false);
+    Movimento soco = new Movimento("Soco", 15, "Lutador", false);
 
 
     //construtor
@@ -12,12 +12,18 @@ public class Lucario extends Pokemon {
     }
 
     @Override
-    void atacar(Pokemon pokemonAdv, int dano, int indice) {
+    public void atacar(Pokemon pokemonAdv, int dano, int indice) {
         if (this.getParalizado() <= 0) {
             pokemonAdv.setVida(pokemonAdv.getVida() - dano);
-        }
-        else{
+        } else {
             System.out.println("Paralizado!");
         }
+    }
+
+    @Override
+    public String UpgradeLevel(Pokemon pokemon) {
+
+        return this.getNome() + " Subiu para o level: " + this.getLevel();
+
     }
 }

@@ -125,6 +125,8 @@ public class Main {
             // Remove o pokemon da lista do adversário caso ele tenha ganho.
             if (!treinadorLog.getListaPokeAdversario().isEmpty()) {
                 System.out.println("\n===============================\nO pokemon do seu adversário foi derrotado.");
+                meuPokemon.setQtdPokeAdvDerrotados(meuPokemon.getQtdPokeAdvDerrotados()+1);
+                System.out.println(meuPokemon.UpgradeLevel(pokemonAdversario));
                 treinadorLog.getListaPokeAdversario().remove(pokemonAdversario);
 
                 // Teste para saber se o usuário venceu.
@@ -143,6 +145,8 @@ public class Main {
         // Verifica se o pokemon do Adversário foi derrotado e se ele ganhou a partida
         else if (meuPokemon.getVida() <= 0) {
             System.out.println("\n===============================\nO seu Pokemon foi derrotado.");
+            pokemonAdversario.setQtdPokeAdvDerrotados(pokemonAdversario.getQtdPokeAdvDerrotados()+1);
+            System.out.println(pokemonAdversario.UpgradeLevel(pokemonAdversario));
             // Remove o pokemon derrotado da lista do usuário.
             if (!treinadorLog.getListaPoke().isEmpty()) {
                 treinadorLog.getListaPoke().remove(meuPokemon);

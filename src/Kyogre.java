@@ -12,7 +12,7 @@ public class Kyogre extends Pokemon {
     }
 
     @Override
-    void atacar(Pokemon pokemonAdv, int dano, int indice) {
+    public void atacar(Pokemon pokemonAdv, int dano, int indice) {
         if (this.getParalizado() <= 0) {
             if (this.getTipoPoke().equals("Agua") && pokemonAdv.getTipoPoke().equals("Fogo")) {
                 System.out.println("O seu Ataque é Super Efetivo!");
@@ -27,5 +27,14 @@ public class Kyogre extends Pokemon {
         else{
             System.out.println("Paralizado!");
         }
+    }
+
+    @Override
+    public String UpgradeLevel(Pokemon pokemon) {
+        int qtdAdvAntigo = this.getQtdPokeAdvDerrotados();
+        if (this.getQtdPokeAdvDerrotados() == qtdAdvAntigo+1){
+            return this.getNome()+" Subiu para o level: " + this.getLevel();
+        }
+        else return null;
     }
 }

@@ -11,7 +11,7 @@ public class Charizard extends Pokemon {
     }
 
     @Override
-    void atacar(Pokemon pokemonAdv, int dano, int indice) {
+    public void atacar(Pokemon pokemonAdv, int dano, int indice) {
         if (this.getParalizado() <= 0) {
             if (this.getTipoPoke().equals("Fogo") && pokemonAdv.getTipoPoke().equals("Planta")) {
                 System.out.println("O seu Ataque é Super Efetivo!");
@@ -26,4 +26,10 @@ public class Charizard extends Pokemon {
 
     }
 
+    @Override
+    public String UpgradeLevel(Pokemon pokemon) {
+        this.setLevel(this.getLevel()+1);
+        return this.getNome() + " Subiu para o level: " + this.getLevel();
+
+    }
 }
