@@ -30,11 +30,9 @@ public class Gyarados extends Pokemon {
     }
 
     @Override
-    public String UpgradeLevel(Pokemon pokemon) {
-        int qtdAdvAntigo = this.getQtdPokeAdvDerrotados();
-        if (this.getQtdPokeAdvDerrotados() == qtdAdvAntigo+1){
-            return this.getNome()+" Subiu para o level: " + this.getLevel();
-        }
-        else return null;
+    public String upgradeLevel(Pokemon pokemon) {
+        this.setLevel(this.getLevel()+1);
+        return this.getNome() + " Subiu para o level: " + this.getLevel();
+
     }
 }

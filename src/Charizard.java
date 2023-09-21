@@ -27,7 +27,7 @@ public class Charizard extends Pokemon {
     }
 
     @Override
-    public String UpgradeLevel(Pokemon pokemon) {
+    public String upgradeLevel(Pokemon pokemon) {
         this.setLevel(this.getLevel()+1);
         return this.getNome() + " Subiu para o level: " + this.getLevel();
 

@@ -1,5 +1,5 @@
 public interface IEvolucao {
 
-    String UpgradeLevel(Pokemon pokemon);
+    String upgradeLevel(Pokemon pokemon);
 
 }
